@@ -25,6 +25,6 @@ sh install.sh
 
 This will remove the wolfram engine and libreoffice in order to make some room (8gb card minimum required) and install all the pre-requisites, and compile all the required software.
 
-once finished, look at HardwareConfig.h to see hoe to set up your LEDs (you will need 2 strips).
+once finished, look at HardwareConfig.h to see how to set up your LEDs (you will need 2 strips).
 
 At this point you may want to create a service that automatically runs it when the Pi boots.
