@@ -20,6 +20,7 @@ echo "Ok, now lets install the required packages.."
 echo
 sudo apt-get -y install build-essential
 sudo apt-get -y install sysvinit-core
+sudo apt-get -y install libboost-dev
 sudo apt-get -y install cmake gfortran git libatlas-base-dev libavcodec-dev libavformat-dev cmake
 sudo apt-get -y install libdc1394-22-dev libgtk2.0-dev libjasper-dev libjpeg-dev libpng12-dev libpng-dev
 sudo apt-get -y install libswscale-dev libtbb2 libtbb-dev libtiff5-dev libtiff-dev 
