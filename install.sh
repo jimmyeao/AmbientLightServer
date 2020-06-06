@@ -29,10 +29,10 @@ echo
 echo "Time for compiling stuff. This WILL take a long time (3 hours 10 mins on a Raspberry Pi 3)"
 echo
 cd ~
-wget https://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.13/opencv-2.4.13.zip
-unzip opencv-2.4.13.zip
-rm opencv-2.4.13.zip
-cd opencv-2.4.13
+wget https://github.com/opencv/opencv/archive/master.zip
+unzip master.zip
+rm master.zip
+cd opencv-master
 mkdir build
 cd build
 cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local -D ENABLE_PRECOMPILED_HEADERS=OFF ..
