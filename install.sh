@@ -56,12 +56,12 @@ cd log4cplus-1.1.3-rc8
 make -j4
 sudo make install
 cd ~
-wget https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.tar.gz
-tar -zxvf boost_1_65_1.tar.gz
-rm boost_1_65_1.tar.gz
-cd boost_1_65_1/
-./bootstrap.sh
-sudo ./b2 install
+#wget https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.tar.gz
+#tar -zxvf boost_1_65_1.tar.gz
+#rm boost_1_65_1.tar.gz
+#cd boost_1_65_1/
+#./bootstrap.sh
+#sudo ./b2 install
 #go get coffee, go for a walk, maybe a nap, this will take some time..
 sudo apt-get install -y wiringpi
 sudo apt-get install -y libxml2-dev
