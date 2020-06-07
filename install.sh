@@ -20,7 +20,7 @@ echo "Ok, now lets install the required packages.."
 echo
 sudo apt-get -y install build-essential
 sudo apt-get -y install sysvinit-core
-sudo apt-get -y install libboost-dev
+#sudo apt-get -y install libboost-dev
 sudo apt-get -y install cmake gfortran git libatlas-base-dev libavcodec-dev libavformat-dev cmake
 sudo apt-get -y install libdc1394-22-dev libgtk2.0-dev libjasper-dev libjpeg-dev libpng12-dev libpng-dev
 sudo apt-get -y install libswscale-dev libtbb2 libtbb-dev libtiff5-dev libtiff-dev 
@@ -29,26 +29,19 @@ echo
 echo "Time for compiling stuff. This WILL take a long time (3 hours 10 mins on a Raspberry Pi 3)"
 echo
 cd ~
-wget https://github.com/opencv/opencv/archive/2.4.7.tar.gz
-tar -zxvf 2.4.7.tar.gz
-rm 2.4.7.tar.gz
-cd opencv-2.4.7
+wget https://github.com/opencv/opencv/archive/2.4.13.6.zip
+unzip 2.4.13.6.zip
+rm 2.4.13.6.zip
+cd opencv-2.4.13.6
 mkdir build
 cd build
 sed -i.bak 's/dumpversion/dumpfullversion/' ../cmake/OpenCVDetectCXXCompiler.cmake
 cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local -D ENABLE_PRECOMPILED_HEADERS=OFF ..
+sed -i '1,4s/^/#define AV_CODEC_FLAG_GLOBAL_HEADER (1 << 22)\n#define CODEC_FLAG_GLOBAL_HEADER AV_CODEC_FLAG_GLOBAL_HEADER\n#define AVFMT_RAWPICTURE 0x0020\n /' /home/pi/opencv-2.4.13.6/modules/highgui/src/cap_ffmpeg.cpp
 make -j4
 sudo make install
 
-#wget https://github.com/opencv/opencv/archive/master.zip
-#unzip master.zip
-#rm master.zip
-#cd opencv-master
-#mkdir build
-#cd build
-#cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local -D ENABLE_PRECOMPILED_HEADERS=OFF ..
-#make -j4
-#sudo make install
+
 cd ~
 wget http://www.digip.org/jansson/releases/jansson-2.10.tar.gz
 tar -zxvf jansson-2.10.tar.gz
@@ -67,12 +60,12 @@ cd log4cplus-1.1.3-rc8
 make -j4
 sudo make install
 cd ~
-#wget https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.tar.gz
-#tar -zxvf boost_1_65_1.tar.gz
-#rm boost_1_65_1.tar.gz
-#cd boost_1_65_1/
-#./bootstrap.sh
-#sudo ./b2 install
+wget https://sourceforge.net/projects/boost/files/boost/1.65.1/boost_1_65_1.tar.gz
+tar -zxvf boost_1_65_1.tar.gz
+rm boost_1_65_1.tar.gz
+cd boost_1_65_1/
+./bootstrap.sh
+sudo ./b2 install
 #go get coffee, go for a walk, maybe a nap, this will take some time..
 sudo apt-get install -y wiringpi
 sudo apt-get install -y libxml2-dev
