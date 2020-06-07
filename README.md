@@ -1,5 +1,8 @@
 AmbientLightServer
 ==================
+**** update - 
+**** OpenCV moved to github - fixed
+**** Newer GCC++ compiler known issue related to a change in the format of g++ -dumpversion - fixed
 
 This is a clone of the AmbientLightServer by @waldobronchart that drives the Ambient Light rig I built. It captures colors from the TV using a webcam, then samples colors at the edge of the screen and updates a bunch of LEDs at the back with those colors.
 
