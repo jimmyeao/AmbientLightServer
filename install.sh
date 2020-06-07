@@ -29,11 +29,14 @@ echo
 echo "Time for compiling stuff. This WILL take a long time (3 hours 10 mins on a Raspberry Pi 3)"
 echo
 cd ~
-wget http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/2.4.7/opencv-2.4.7.tar.gz
-tar -zxvf opencv-2.4.7.tar.gz
-rm opencv-2.4.7.tar.gz
+wget https://github.com/opencv/opencv/archive/2.4.7.tar.gz
+tar -zxvf 2.4.7.tar.gz
+rm 2.4.7.tar.gz
 cd opencv-2.4.7
-./configure
+mkdir build
+cd build
+sed -i.bak 's/dumpversion/dumpfullversion/' ../cmake/OpenCVDetectCXXCompiler.cmake
+cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local -D ENABLE_PRECOMPILED_HEADERS=OFF ..
 make -j4
 sudo make install
 
